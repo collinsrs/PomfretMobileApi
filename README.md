@@ -16,7 +16,7 @@ This API is intended to work with a properly configured front-end site. Most raw
 
 ## Installation
 
-Dillinger requires [Node.js](https://nodejs.org/), and yarn to run.
+This API requires [Node.js](https://nodejs.org/), and yarn, and TypeScript installed on your computer to run.
 
 For Development:
 
