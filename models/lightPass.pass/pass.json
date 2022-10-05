@@ -1,0 +1,15 @@
+{"barcode":
+    {"format":"PKBarcodeFormatRectangle"},
+    
+    "logoText":"PomfretCard",
+    "backgroundColor":"rgb(255,255,255)",
+    "labelColor":"rgb(235,20,76)",
+    "serialNumber": "pomfretcard-1.0.2-t1",
+    "foregroundColor":"rgb(0,0,0)",
+    "passTypeIdentifier":"pass.com.vora.pomfretschool",
+    "description":"PomfretCard",
+    "teamIdentifier":"49623K69RW",
+    "organizationName":"Pomfret School",
+    "formatVersion":1,
+    "generic":{}
+}

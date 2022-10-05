@@ -1,0 +1,6 @@
+.env
+certificates
+node_modules
+gkey.json
+/services/android/gkey.json
+.DS_Store

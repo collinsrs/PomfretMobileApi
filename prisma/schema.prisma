@@ -1,0 +1,100 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model request {
+  id String @id @default(uuid())
+  slug String 
+  requestMethod String
+  remoteUser String
+  statusCode Int
+  timestamp DateTime @default(now()) @db.Timestamp(6)
+  userId String?
+  user User? @relation(fields: [userId], references: [id])
+  userAgent String
+}
+model User {
+  id            String    @id @default(uuid())
+  name          String?
+  createdAt    DateTime  @default(now())
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  isAdmin      Boolean   @default(false)
+  isStudent    Boolean   @default(true)
+  Role          String? @default("STUDENT")
+  internalId    String? @unique
+  requests      request[]
+  accounts      Account[]
+  sessions      Session[]
+  generations  Generation[]
+  schoolName String?
+  school     School? @relation(fields: [schoolName], references: [schoolName])
+}
+
+model Account {
+  id                 String  @id @default(uuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Generation {
+  id String @id @default(uuid())
+  userId String 
+  user User @relation(fields: [userId], references: [id])
+  generatedAt DateTime @default(now()) @db.Timestamp(6)
+  generationType String
+  remoteAddress String
+  generatedStatus String
+}
+
+model School {
+  id String @id @default(cuid())
+  schoolName String @unique
+  schoolCountry String
+  schoolAddress String
+  schoolCity String
+  schoolState String
+  schoolZip String
+  schoolPhone String
+  schoolDomain String
+  schoolType String
+  schoolPermissions String
+  students User[]
+}
