@@ -2,6 +2,9 @@ import api from "./lib/express";
 import auth from "./services/auth";
 import {iosRouter} from "./routes/ios";
 import androidRouter from "./routes/android";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 api.listen(9999, () => {
     console.log("Server started on port 9999");
