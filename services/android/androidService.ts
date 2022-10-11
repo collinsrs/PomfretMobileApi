@@ -104,7 +104,13 @@ const claims = {
   const token = jsonwebtoken.sign(claims, credentials.private_key, { algorithm: 'RS256' });
   const saveUrl = `https://pay.google.com/gp/v/save/${token}`;
   
-  res.json({
-    saveUrl
+  res.setHeader('Pass-Access-Uri', saveUrl);
+  res.status(201).json({
+    status: 201,
+    isError: false,
+    message: "Successfully created loyalty object.",
+    data: {
+        saveUrl: saveUrl
+    }
       });
 }
