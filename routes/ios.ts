@@ -90,13 +90,7 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
  
          pass.backFields.push(
              {
-                 key: "type",
-                 label: "Pass Type",
-                 value: "Student- Light",
- 
-             },
-             {
-                 key: "id-innerva",
+                 key: "id-digital",
                  label: "Digital Account ID:",
                  value: encodeAccountID,
  
@@ -137,6 +131,11 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
                  key: "gen-version",
                  label: "Version",
                  value: "2.0",
+             },
+             {
+                key: "pass-issuer",
+                label: "Issuer",
+                value: "@core/ios/v2.0.1",
              },
          );
          
