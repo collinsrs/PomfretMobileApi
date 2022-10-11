@@ -27,6 +27,18 @@ yarn install
 yarn start
 ```
 
+Environment variables are required to run this application. Start by creating a `.env` file in the project root directory.
+Insert the following values into your `.env` file.
+
+`
+//For DB Connection
+DATABASE_URL='postgres://your-credentials'
+//Random 128-bit client secret- run openssl rand -hex 128 to generate
+AUTHORIZED_CLIENT_SECRET='secret'
+//Google Pay Issuer ID
+GPAY_ISSUER_ID=0000000
+`
+
 For production environments...
 
 ```sh
