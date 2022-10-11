@@ -50,6 +50,8 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
          const pass = await PKPass.from(
              {
                  model: path.resolve(__dirname, "../models/lightPass"),
+                 passTypeIdentifier: process.env.PASS_TYPE_IDENTIFIER,
+                 teamIdentifier: process.env.TEAM_IDENTIFIER,
                  certificates: {
                      wwdr: certificates.wwdr,
                      signerCert: certificates.signerCert,

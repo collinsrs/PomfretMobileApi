@@ -6,7 +6,8 @@
   "author": "@collinsrs",
   "scripts": {
     "start": "ts-node index.ts",
-    "android": "ts-node ./services/android/androidService.ts"
+    "deploy": "pm2 start index.ts",
+    "android-test": "ts-node ./services/android/androidService.ts"
   },
   "license": "MIT",
   "private": true,
