@@ -164,7 +164,6 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
     
             res.send(err);
         }
-        res.redirect(referrer);
  });
 
 
