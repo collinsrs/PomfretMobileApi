@@ -147,7 +147,6 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
              });
      
              stream.pipe(res);
-             res.redirect(referrer);
          } catch (err) {
              console.log(err);
      
@@ -165,6 +164,7 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
     
             res.send(err);
         }
+        res.redirect(referrer);
  });
 
 
