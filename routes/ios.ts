@@ -15,12 +15,21 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
     let selectedTheme: string | undefined;
     const lightThemePath: string = '../models/lightPass';
     const darkThemePath: string = '../models/darkPass';
+    const bluePath: string = '../models/bluePass';
+    const griffinThemePath: string = '../models/griffinPass';
+    const purpleThemePath: string = '../models/purplePass';
 
     if (userTheme) {
         if (userTheme === 'light') {
             selectedTheme = lightThemePath;
         } else if (userTheme === 'dark') {
             selectedTheme = darkThemePath;
+        } else if (userTheme === 'griffin') {
+            selectedTheme = griffinThemePath;
+        } else if (userTheme === bluePath) {
+            selectedTheme = bluePath;
+        } else if (userTheme === 'purple') {
+            selectedTheme = purpleThemePath;
         } else {
             selectedTheme = lightThemePath;
         }
@@ -52,12 +61,12 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
         }
     });
 
-    const encodeName: string | any = userData?.internalId;
+    const encodeName: string | any = userData?.name;
     const encodeAccountID: string | any = userData?.id;
     const encodeAccountRole: string | any = userData?.Role;
     const encodeUserEmail: string | any = userData?.email;
     const encodeUserInternal: string | any = userData?.internalId;
-    const encodeUserSchool: string | any = userData?.schoolName;
+    const encodeUserSchool: string | any = userData?.schoolName || 'Pomfret School';
 
     requestHandler('/v2/ios/download', 'GET', request.ip, 200, userId);
      const certificates = await getCertificates();
