@@ -11,6 +11,22 @@ export const iosRouter = Express.Router();
 iosRouter.route("/download/:id").get(async (request, res, next) => {
     const referrer: string | any = request.headers.referer;
     const tz = Intl.DateTimeFormat().resolvedOptions();
+    const userTheme = request.query.theme;
+    let selectedTheme: string | undefined;
+    const lightThemePath: string = '../models/lightPass';
+    const darkThemePath: string = '../models/darkPass';
+
+    if (userTheme) {
+        if (userTheme === 'light') {
+            selectedTheme = lightThemePath;
+        } else if (userTheme === 'dark') {
+            selectedTheme = darkThemePath;
+        } else {
+            selectedTheme = lightThemePath;
+        }
+    } else {
+        return res.status(400).json({ message: 'No theme was provided with this request' });
+    }
     
     //verify token
     const userId = request.params.id;
@@ -49,7 +65,7 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
      try {
          const pass = await PKPass.from(
              {
-                 model: path.resolve(__dirname, "../models/lightPass"),
+                 model: path.resolve(__dirname, selectedTheme),
                  certificates: {
                      wwdr: certificates.wwdr,
                      signerCert: certificates.signerCert,
