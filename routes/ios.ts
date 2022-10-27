@@ -26,7 +26,7 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
             selectedTheme = darkThemePath;
         } else if (userTheme === 'griffin') {
             selectedTheme = griffinThemePath;
-        } else if (userTheme === bluePath) {
+        } else if (userTheme === 'blue') {
             selectedTheme = bluePath;
         } else if (userTheme === 'purple') {
             selectedTheme = purpleThemePath;
@@ -110,7 +110,7 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
  
          pass.setBeacons({
              proximityUUID: "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
-             relevantText: "Tap scan and pay with PomfretCard."
+             relevantText: "Tap to scan and pay using PomfretCard."
          });
  
  

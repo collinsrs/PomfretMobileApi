@@ -1,1 +1,14 @@
-{"barcode":{"format":"PKBarcodeFormatRectangle"},"logoText":"PomfretCard","backgroundColor":"rgb(6,147,227)","labelColor":"rgb(153,0,239)","foregroundColor":"rgb(153,0,239)","passTypeIdentifier":"pass.com.vora.pomfretschool","description":"PomfretCard Digital Edition","teamIdentifier":"49623K69RW","organizationName":"Innerva Solutions, LLC","formatVersion":1,"generic":{"headerFields":[],"auxiliaryFields":[],"primaryFields":[],"secondaryFields":[],"backFields":[]}}
+{
+    "barcode":
+        {
+            "format": "PKBarcodeFormatRectangle"
+        },
+    "logoText":"PomfretCard",
+    "backgroundColor":"rgb(6,147,227)",
+    "labelColor":"rgb(153,0,239)",
+    "serialNumber":"pomfretcard-2.0.3-b1",
+    "foregroundColor":"rgb(153,0,239)",
+    "passTypeIdentifier":"pass.com.vora.pomfretschool",
+    "description":"PomfretCard",
+    "teamIdentifier":"49623K69RW",
+    "organizationName":"Pomfret School","formatVersion":1,"generic":{"headerFields":[],"auxiliaryFields":[],"primaryFields":[],"secondaryFields":[],"backFields":[]}}
