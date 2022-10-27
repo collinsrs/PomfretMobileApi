@@ -156,12 +156,12 @@ iosRouter.route("/download/:id").get(async (request, res, next) => {
              {
                  key: "gen-version",
                  label: "Version",
-                 value: "2.0",
+                 value: "2.0.2",
              },
              {
                 key: "pass-issuer",
                 label: "Issuer",
-                value: "@core/ios/v2.0.1",
+                value: "@core/ios/v2.0.2",
              },
          );
          
